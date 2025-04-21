@@ -2,6 +2,7 @@
 
 ## Dependencies
 - [zsh](https://www.zsh.org/)
+- [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
 - [stow](https://www.gnu.org/software/stow/)
 
 ## Installation
