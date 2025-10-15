@@ -32,8 +32,19 @@ source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Keybindings section
 bindkey -e
-bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
-bindkey '^[[Z' undo                                             # Shift+tab undo last action
+# Delete previous word with ctrl+backspace
+bindkey '^H' backward-kill-word
+# Shift+tab undo last action
+bindkey '^[[Z' undo
+# Autocompletion with Ctrl+Y
+bindkey '^Y' .autocomplete:async:complete
+
+# Change tab to open autocomplete menu and cycle through it
+bindkey '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '^I' menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+
 
 # Start TMUX
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
