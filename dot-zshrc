@@ -1,3 +1,23 @@
+# Setup environment variables
+export PATH="$HOME/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$PATH"
+export PATH="$PATH:/home/tinspring/.local/bin"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
+export LD_PRELOAD=""
+export EDITOR="nvim"
+export MANPAGER='nvim +Man!'
+export LANGUAGE=en_DK.UTF-8
+export LC_ALL=en_DK.UTF-8
+export LANG=en_DK.UTF-8
+export LC_CTYPE=en_DK.UTF-8
+
+# Include my environment variables
+source ~/.my_env
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # Load colours and then set prompt
 autoload -U colors && colors
 PS1="%b%{$fg[green]%}%n%{$fg[green]%}%B@%b%{$fg[green]%}%m %{$fg[green]%}%~$:%b%{$reset_color%} "
@@ -37,40 +57,43 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
-export LD_PRELOAD=""
-export EDITOR="nvim"
-export MANPAGER='nvim +Man!'
-export PATH="$HOME/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$PATH"
-export LANGUAGE=en_DK.UTF-8
-export LC_ALL=en_DK.UTF-8
-export LANG=en_DK.UTF-8
-export LC_CTYPE=en_DK.UTF-8
-export PATH=$PATH:~/lobster/bin
-export PATH=$PATH:/usr/local/texlive/2023/bin/x86_64-linux
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:/home/tinspring/.local/bin"
-
-
-# alias
-alias curl="curl --user-agent 'noleak'"
-alias r="reset"
-alias dd="dd status=progress"
-alias df="df -h"                          # human-readable sizes
-alias free="free -h"
-alias du="du -h"
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-export XDG_CONFIG_HOME=$HOME/.config
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
 
-source ~/.bash_aliases
-source ~/.bash_scripts
-source ~/.my_env
+# Setup aliases
+alias vim="nvim"
+alias vimrc="cd ~/.config/nvim && nvim ."
 
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+alias makepkg="makepkg -si"
+
+alias ls="ls --color=auto"
+alias la="ls -a --color=auto"
+alias ll="ls -lh --color=auto"
+alias lla="ls -lah --color=auto"
+
+alias grep="rg --color=auto"
+
+alias activate="source .venv/bin/activate"
+
+alias google="firefox --new-window --search"
+
+alias tls="tmux ls"
+alias trs="tmux rename-session -t"
+alias tk="tmux kill-session -t"
+alias tka="tmux kill-session -a"
+alias trw="tmux rename-window -t"
+alias tks="tmux kill-server"
+
+alias ctest="ctest --output-on-failure --timeout 15"
+
+alias curl="curl --user-agent 'noleak'"
+alias r="reset"
+alias dd="dd status=progress"
+alias df="df -h"
+alias free="free -h"
+alias du="du -h"
+
 eval "$(pyenv init -)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(keychain --eval --quiet ca_ssh_key root_ssh_key)"
