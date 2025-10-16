@@ -34,6 +34,13 @@ source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 bindkey -e
 # Delete previous word with ctrl+backspace
 bindkey '^H' backward-kill-word
+# Move backward by word with ctrl+left
+bindkey '^[[1;5D' backward-word
+# Move forward by word with ctrl+right  
+bindkey '^[[1;5C' forward-word
+# Removes / - and _ from WORDCHARS so they are treated as word separators
+WORDCHARS='*?.[]~=&;!#$%^(){}<>'
+
 # Shift+tab undo last action
 bindkey '^[[Z' undo
 # Autocompletion with Ctrl+Y
