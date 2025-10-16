@@ -71,9 +71,9 @@ alias lla="ls -lah --color=auto"
 
 alias grep="rg --color=auto"
 
-alias activate="source .venv/bin/activate"
+alias cat="bat"
 
-alias google="firefox --new-window --search"
+alias activate="source .venv/bin/activate"
 
 alias tls="tmux ls"
 alias trs="tmux rename-session -t"

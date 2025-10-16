@@ -5,6 +5,11 @@
 - [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete)
 - [stow](https://www.gnu.org/software/stow/)
 - [git](https://git-scm.com/)
+- [pyenv](https://github.com/pyenv/pyenv)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fzf](https://github.com/junegunn/fzf)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [bat](https://github.com/sharkdp/bat)
 
 ## Installation
 ### Clone and link the configuration files
