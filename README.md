@@ -9,9 +9,9 @@
 ## Installation
 ### Clone and link the configuration files
 ```bash
-mkdir -p ~/git
-git clone https://github.com/lassejep/shell_config.git ~/git/
-cd ~/git/shell_config
+mkdir -p ~/configs
+git clone https://github.com/lassejep/shell_config.git ~/configs/
+cd ~/configs/shell_config
 stow --dotfiles -t ~/ .
 ```
 
